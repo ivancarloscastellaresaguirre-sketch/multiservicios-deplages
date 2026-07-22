@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTISERVICIOS DEPLAGES - CETPRO Pedro Paulet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Librerías de QR y Audio -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+
+<body>
+    <div class="tech-bg"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="CETPRO Logo" class="brand-logo">
+            <div class="brand-text">
+                <h1>CETPRO N° 34016 <span>“PEDRO PAULET”</span></h1>
+                <p>Plataforma Institucional y Control QR | Huancavelica - 2026</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#asistencia"><i class="fa-solid fa-qrcode"></i> Control QR</a></li>
+                <li><a href="#credenciales"><i class="fa-solid fa-id-card"></i> Credenciales</a></li>
+                <li><a href="#reportes"><i class="fa-solid fa-chart-line"></i> En Vivo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="badge">MÓDULO III - DESARROLLO WEB & SISTEMAS</span>
+            <h2>MULTISERVICIOS <span>DEPLAGES</span></h2>
+            <p>Sistema Inteligente de Gestión de Asistencia con Lectura QR en Tiempo Real para Entidades Educativas.</p>
+            <div class="hero-buttons">
+                <a href="#asistencia" class="btn btn-primary"><i class="fa-solid fa-camera"></i> Iniciar Escáner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo de Escaneo QR -->
+    <section id="asistencia" class="container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-camera"></i> Control de Ingreso QR</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card glass">
+                <h3><i class="fa-solid fa-expand"></i> Creador de Lectura en Vivo</h3>
+                <div id="reader"></div>
+                <div id="scan-status" class="status-indicator hidden">Procesando código...</div>
+            </div>
+
+            <div class="card glass">
+                <h3><i class="fa-solid fa-clipboard-check"></i> Resultado del Escaneo</h3>
+                <div id="scan-result-card" class="result-card hidden">
+                    <div id="result-badge" class="result-badge">---</div>
+                    <h4 id="res-nombre">Nombres y Apellidos</h4>
+                    <p id="res-rol">Rol / Programa</p>
+                    <p id="res-hora" class="time-tag">Hora: --:--:--</p>
+                    <p id="res-msg" class="message-tag"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo Generador / Probador de Credenciales -->
+    <section id="credenciales" class="container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-id-card"></i> Generador / Probador de Credencial Digital</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card glass">
+                <form id="form-test-qr">
+                    <div class="form-group">
+                        <label>Ingrese DNI Registrado:</label>
+                        <input type="text" id="test-dni" placeholder="Ej. 70123456" required>
+                    </div>
+                    <button type="button" onclick="generarQRPrueba()" class="btn btn-primary btn-block">Generar Código
+                        QR</button>
+                </form>
+            </div>
+            <div class="card glass text-center">
+                <canvas id="qr-canvas"></canvas>
+                <p class="subtitle">Muestre este QR a la cámara de la izquierda para probar la lectura en tiempo real.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitor de Asistencia en Tiempo Real -->
+    <section id="reportes" class="container">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-list-check"></i> Monitor de Marcas Recientes</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="card glass">
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>DNI</th>
+                        <th>Usuario</th>
+                        <th>Programa / Rol</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-table-body">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CETPRO N° 34016 "Pedro Paulet" - Huancavelica | Docente Asesor: Prof. Iván Carlos Castellares
+            Aguirre</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
