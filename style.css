@@ -3,485 +3,66 @@
     --card-bg: rgba(16, 23, 41, 0.85);
     --primary: #00f2fe;
     --secondary: #4facfe;
-    --accent: #7928ca;
     --text: #e2e8f0;
     --text-dim: #94a3b8;
     --success: #00e676;
-    --warning: #ffab00;
     --danger: #ff1744;
     --border: rgba(0, 242, 254, 0.25);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background: var(--bg-dark);
-    color: var(--text);
-    overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: var(--bg-dark); color: var(--text); overflow-x: hidden; }
 
 .tech-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at 50% 50%, rgba(121, 40, 202, 0.12), transparent 60%),
-        linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 30px 30px, 30px 30px;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.1), transparent 60%);
     z-index: -1;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: rgba(10, 14, 23, 0.95);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: rgba(10, 14, 23, 0.95);
+    border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.brand-logo {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 0 6px var(--primary));
-}
-
-.brand-text h1 {
-    font-size: 1.1rem;
-    color: #fff;
-}
-
-.brand-text h1 span {
-    color: var(--primary);
-}
-
-.brand-text p {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-nav a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--primary);
-    text-shadow: 0 0 8px var(--primary);
-}
-
-.hero {
-    padding: 3rem 5%;
-    text-align: center;
-}
-
-.badge {
-    background: linear-gradient(90deg, var(--accent), var(--primary));
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin: 12px 0;
-}
-
-.hero h2 span {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    max-width: 600px;
-    margin: 0 auto 20px;
-    color: var(--text-dim);
-}
-
-.container {
-    padding: 2rem 5%;
-}
-
-.section-title h2 {
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.line {
-    height: 2px;
-    width: 60px;
-    background: var(--primary);
-    margin: 6px 0 20px;
-    box-shadow: 0 0 6px var(--primary);
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-}
-
-.glass {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-primary {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: #000;
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
-}
-
-.btn-block {
-    width: 100%;
-    justify-content: center;
-}
-
-.form-group {
-    margin-bottom: 12px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: rgba(10, 14, 23, 0.8);
-    color: #fff;
-}
-
-.result-card {
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.result-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-}
-
-.result-badge.atiempo {
-    background: rgba(0, 230, 118, 0.2);
-    color: var(--success);
-    border: 1px solid var(--success);
-}
-
-.result-badge.tardanza {
-    background: rgba(255, 171, 0, 0.2);
-    color: var(--warning);
-    border: 1px solid var(--warning);
-}
-
-.result-badge.error {
-    background: rgba(255, 23, 68, 0.2);
-    color: var(--danger);
-    border: 1px solid var(--danger);
-}
-
-.time-tag {
-    font-size: 0.8rem;
-    color: var(--primary);
-    margin-top: 5px;
-}
-
-.message-tag {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 5px;
-}
-
-.tech-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    text-align: left;
-}
-
-.tech-table th,
-.tech-table td {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.85rem;
-}
-
-.tech-table th {
-    background: rgba(0, 242, 254, 0.1);
-    color: var(--primary);
-}
-
-.status-indicator {
-    text-align: center;
-    padding: 8px;
-    font-size: 0.85rem;
-    color: var(--primary);
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-top: 2rem;
-}
-
-.hidden {
-    display: none;
-}
-
-.text-center {
-    text-align: center;
-}
-
-3.3 script.js (Conexión Fetch API y Feedback Sonoro/Visual) JavaScript // URL de la Apps Script Publicada (CONFIGURAR CON TU URL REAL)
-const API_URL="PEGA_AQUI_TU_URL_DE_APPS_SCRIPT";
-
-let isScanning=false;
-
-// 1. Inicialización de Cámara y Escáner QR
-window.addEventListener('DOMContentLoaded', ()=> {
-
-        let html5QrcodeScanner=new Html5QrcodeScanner("reader",
-            {
-            fps: 10, qrbox: {
-                width: 220, height: 220
-            }
-        }
-
-        ,
-        false);
-    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-});
-
-// 2. Evento cuando la cámara detecta un QR
-function onScanSuccess(decodedText) {
-    if (isScanning) return; // Evitar disparos múltiples en simultáneo
-    isScanning=true;
-
-    showStatus("Procesando marca con servidor...");
-
-    // Enviar petición POST a Google Apps Script
-    fetch(API_URL, {
-
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-
-        ,
-        body: JSON.stringify({
-            dni: decodedText
-        })
-
-}) .then(res=> res.json()) .then(data=> {
-        renderResult(data, decodedText);
-
-        setTimeout(()=> {
-                isScanning=false; hideStatus();
-            }
-
-            , 3000); // Cooldown de 3 segundos
-
-    }) .catch(err=> {
-        renderResult({
-            status: 'error', message: 'Error de red o servidor no responde.'
-        }
-
-        , decodedText);
-
-    setTimeout(()=> {
-            isScanning=false; hideStatus();
-        }
-
-        , 3000);
-});
-}
-
-function onScanFailure(error) {
-    // Escaneo continuo
-}
-
-// 3. Renderizado de Resultados en la Pantalla
-function renderResult(data, dni) {
-    const card=document.getElementById('scan-result-card');
-    const badge=document.getElementById('result-badge');
-    const resNombre=document.getElementById('res-nombre');
-    const resRol=document.getElementById('res-rol');
-    const resHora=document.getElementById('res-hora');
-    const resMsg=document.getElementById('res-msg');
-
-    card.classList.remove('hidden');
-
-    if (data.status==='success') {
-        badge.innerText=data.estado;
-        badge.className="result-badge "+(data.estado==='A TIEMPO' ? 'atiempo' : 'tardanza');
-        resNombre.innerText=data.nombre;
-
-        resRol.innerText=`$ {
-            data.rol
-        }
-
-        - $ {
-            data.programa
-        }
-
-        `;
-
-        resHora.innerText=`Hora: $ {
-            data.hora
-        }
-
-        `;
-        resMsg.innerText=data.message;
-
-        agregarFilaTabla(data.hora, dni, data.nombre, data.programa, data.estado);
-        playAudioFeedback(true);
-
-    }
-
-    else {
-        badge.innerText="DENEGADO";
-        badge.className="result-badge error";
-        resNombre.innerText="No Registrado";
-        resRol.innerText="N/A";
-        resHora.innerText="";
-        resMsg.innerText=data.message;
-        playAudioFeedback(false);
-    }
-}
-
-// 4. Agregar a la Tabla Visual en Vivo
-function agregarFilaTabla(hora, dni, nombre, programa, estado) {
-    const tabla=document.getElementById('attendance-table-body');
-    const claseBadge=estado==='A TIEMPO' ? 'atiempo': 'tardanza';
-
-    const nuevaFila=` <tr><td>$ {
-        hora
-    }
-
-    </td><td>$ {
-        dni
-    }
-
-    </td><td>$ {
-        nombre
-    }
-
-    </td><td>$ {
-        programa
-    }
-
-    </td><td><span class="result-badge ${claseBadge}" style="font-size:0.7rem; padding:2px 8px;">$ {
-        estado
-    }
-
-    </span></td></tr>`;
-    tabla.insertAdjacentHTML('afterbegin', nuevaFila);
-}
-
-// 5. Probador de QR en Pantalla
-function generarQRPrueba() {
-    const dni=document.getElementById('test-dni').value;
-
-    if ( !dni) {
-        alert("Ingrese un DNI");
-        return;
-    }
-
-    new QRious({
-        element: document.getElementById('qr-canvas'),
-        value: dni,
-        size: 180,
-        foreground: '#00f2fe',
-        backgroundAlpha: 0
-    });
-}
-
-// 6. Efectos de Sonido Sintetizados (Web Audio API)
-function playAudioFeedback(success) {
-    try {
-        const ctx=new (window.AudioContext || window.webkitAudioContext)();
-        const osc=ctx.createOscillator();
-        const gain=ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.frequency.value=success ? 880: 220; // Agudo para éxito, grave para error
-        osc.type='sine';
-        gain.gain.setValueAtTime(0.1, ctx.currentTime);
-
-        osc.start();
-        osc.stop(ctx.currentTime + 0.2);
-    }
-
-    catch(e) {}
-}
-
-function showStatus(msg) {
-    const st=document.getElementById('scan-status');
-    st.innerText=msg;
-    st.classList.remove('hidden');
-}
-
-function hideStatus() {
-    document.getElementById('scan-status').classList.add('hidden');
-}
+.logo-container { display: flex; align-items: center; gap: 15px; }
+.brand-logo { width: 48px; height: 48px; object-fit: contain; }
+.brand-text h1 { font-size: 1.1rem; color: #fff; }
+.brand-text h1 span { color: var(--primary); }
+.brand-text p { font-size: 0.75rem; color: var(--text-dim); }
+
+nav ul { display: flex; list-style: none; gap: 15px; }
+nav a { color: var(--text); text-decoration: none; font-size: 0.85rem; }
+
+.hero { padding: 2.5rem 5%; text-align: center; }
+.badge { background: var(--primary); color: #000; padding: 4px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: bold; }
+.hero h2 { font-size: 2.2rem; margin: 10px 0; color: var(--primary); }
+.hero p { color: var(--text-dim); }
+
+.container { padding: 1.5rem 5%; }
+.section-title h2 { font-size: 1.3rem; }
+.line { height: 2px; width: 50px; background: var(--primary); margin: 5px 0 15px; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.glass { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+
+.btn { padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; border: none; background: var(--primary); color: #000; }
+.btn-block { width: 100%; }
+
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; margin-bottom: 4px; font-size: 0.85rem; color: var(--text-dim); }
+.form-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: #000; color: #fff; }
+
+.result-card { text-align: center; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
+.result-badge { display: inline-block; padding: 6px 14px; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 10px; }
+.result-badge.info { background: rgba(0, 242, 254, 0.2); color: var(--primary); }
+.result-badge.success { background: rgba(0, 230, 118, 0.2); color: var(--success); }
+
+.time-tag { font-size: 0.8rem; color: var(--primary); margin-top: 5px; }
+
+.tech-table { width: 100%; border-collapse: collapse; text-align: left; }
+.tech-table th, .tech-table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; }
+.tech-table th { color: var(--primary); }
+
+footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); margin-top: 2rem; }
+.text-center { text-align: center; }
